@@ -1,0 +1,46 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.navbar {
+    background-color: wheat;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.image {
+    border: 3px;
+    border-style: solid;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.selected {
+    border-color: blue;
+}
+.image img {
+    width: 100%;    
+}
+.image p {
+    margin: 5px;
+}
+.info {
+    display: flex;
+    align-items: stretch;     
+    justify-content: space-between;
+}
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-gap: 10px;
+    padding-top: 40px;
+}

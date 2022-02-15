@@ -1,93 +1,81 @@
 <html>
     <head>
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-        }
-        .navbar {
-            background-color: wheat;
-            width: 100%;
-            position: fixed;
-            z-index: 2;
-        }
-        .image {
-            border: 3px;
-            border-style: solid;
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            flex-direction: column;
-        }
-        .image img {
-            width: 100%;    
-        }
-        .image p {
-            margin: 5px;
-        }
-        .info {
-            display: flex;
-            align-items: stretch;     
-            justify-content: space-between;
-        }
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            grid-gap: 10px;
-            padding-top: 40px;
-        }
-    </style>
+       <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="navbar">
-            $5/foot
-            0 selected
+        <div id="navbar" class="navbar">
+            <div>
+                <p id="counter">0</p> selected
+            </div>
+            <button onclick="checkout()">Checkout</button>
         </div>
         <div class="photo-grid">
-            <div class="image vertical">
+            <div id="1" class="image vertical" onclick="selectPhoto(this.id)">
                 <img src="https://cdn.discordapp.com/attachments/765695223996350485/942944404023439360/Scan_30.png">
                 <p>Title</p>
             </div>
-            <div class="image horizontal">
+            <div id="a" class="image horizontal" onclick="selectPhoto(this.id)">
                 <img src="https://cdn.discordapp.com/attachments/765695223996350485/942945618916171806/Scan_24.png">
                 <p>Landscape</p>
             </div>
-            <div class="image vertical">
+            <div id="0" class="image vertical" onclick="selectPhoto(this.id)">
                 <img src="https://cdn.discordapp.com/attachments/765695223996350485/942944404023439360/Scan_30.png">
                 <p>Subtext</p>
             </div>
-            <div class="image horizontal">
+            <div id="2" class="image horizontal" onclick="selectPhoto(this.id)">
                 <img src="https://cdn.discordapp.com/attachments/765695223996350485/942945618916171806/Scan_24.png">
                 <p>Landscape</p>
             </div>
-            <div class="image vertical">
+            <div id="3" class="image vertical" onclick="selectPhoto(this.id)">
                 <img src="https://cdn.discordapp.com/attachments/765695223996350485/942944404023439360/Scan_30.png">
                 <p>Subtext</p>
             </div>
-            <div class="image horizontal">
+            <div id="4" class="image horizontal" onclick="selectPhoto(this.id)">
                 <img src="https://cdn.discordapp.com/attachments/765695223996350485/942945618916171806/Scan_24.png">
                 <p>Landscape</p>
             </div>
 
-            <div class="image vertical">
+            <div id="5" class="image vertical" onclick="selectPhoto(this.id)">
                 <img src="https://cdn.discordapp.com/attachments/765695223996350485/942944404023439360/Scan_30.png">
                 <p>Subtext</p>
             </div>
-            <div class="image horizontal">
+            <div id="6" class="image horizontal" onclick="selectPhoto(this.id)">
                 <img src="https://cdn.discordapp.com/attachments/765695223996350485/942945618916171806/Scan_24.png">
                 <p>Landscape</p>
             </div>
-            <div class="image vertical">
+            <div id="7" class="image vertical" onclick="selectPhoto(this.id)">
                 <img src="https://cdn.discordapp.com/attachments/765695223996350485/942944404023439360/Scan_30.png">
                 <p>Subtext</p>
             </div>
-            <div class="image horizontal">
+            <div id="8" class="image horizontal" onclick="selectPhoto(this.id)">
                 <img src="https://cdn.discordapp.com/attachments/765695223996350485/942945618916171806/Scan_24.png">
                 <p>Landscape</p>
             </div>
-            <div class="image vertical">
+            <div id="9" class="image vertical" onclick="selectPhoto(this.id)">
                 <img src="https://cdn.discordapp.com/attachments/765695223996350485/942944404023439360/Scan_30.png">
                 <p>Subtext</p>
             </div>
         </div>
     </body>
+    <script>
+        let selectedPhotos = []
+        function selectPhoto(id) {
+            const element = document.getElementById(id)
+            if (element.classList.contains("selected")) {
+                element.classList.remove("selected")
+                selectedPhotos = selectedPhotos.filter(e => e != id)
+            } else {
+                element.classList.add("selected")
+                selectedPhotos.push(id)
+            }
+            updateNavBar()
+        }
+        function updateNavBar() {
+            const navBar = document.getElementById("navbar")
+            document.getElementById("counter").innerHTML = selectedPhotos.length;
+        }
+        function checkout() {
+            window.location.href = "./checkout.html"
+        }
+    </script>
 </html>

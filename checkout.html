@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            .checkout-items {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+            .checkout-item {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, .5fr));
+            }
+            .checkout-item .image {
+                max-width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="checkout-items">
+            <div id="1" class="checkout-item">
+                <div class="image">
+                    <img src="https://cdn.discordapp.com/attachments/765695223996350485/942944404023439360/Scan_30.png">
+                    <p>Title</p>
+                </div>
+                <div>
+                    Paper Type
+                    <div class="flex-col">
+                        <div>
+                            <input type="radio" id="regular" name="paper-type">
+                            <label for="regular">Regular Paper</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="gloss" name="paper-type">
+                            <label for="gloss">Gloss</label>
+                        </div>
+                    </div>
+                    Dimensions
+                    <div class="flex-col">
+                        <div>
+                            <input type="radio" id="8by4" name="photo-size">
+                            <label for="8by4">~8 x 4</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="12by6" name="photo-size">
+                            <label for="12by6">~12 x 6</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form action="./payment.html">
+                <div class="flex-col">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname" value="John"><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+                </div>
+                <!-- https://codepen.io/lusa9/pen/wvBoNKX -->
+                <input type="street" class="form-control" id="autocomplete" placeholder="Street">
+                <input type="city" class="form-control" id="inputCity" placeholder="City">
+                <input type="state" class="form-control" id="inputState" placeholder="State">
+                <input type="zip" class="form-control" id="inputZip" placeholder="Zip">
+                <input type="county" class="form-control" id="inputCounty" placeholder="County">
+                
+                <input type="country" 
+                        class="form-control" 
+                        id="inputCountry" 
+                        placeholder="Country">
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>
